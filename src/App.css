@@ -533,3 +533,10 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.project-detail__image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}

@@ -2,6 +2,40 @@
 import { useParams, Link } from "react-router-dom";
 import { mlProjects } from "../data/mlProjects";
 
+// === IMAGE IMPORTS ===
+import spectralHeatmap from "../assets/ml/spectral-lora-heatmap.png";
+import spectralAverageGaps from "../assets/ml/spectral-lora-average-gaps.png";
+import styleclipProblem from "../assets/ml/styleclip-problem.png";
+import styleclipResults from "../assets/ml/styleclip-results.png";
+import deblurganBeforeAfter from "../assets/ml/deblurgan-before-after.png";
+import threeHanArchitecture from "../assets/ml/3han-architecture.png";
+import threeHanConfusion from "../assets/ml/3han-confusion-matrix.png";
+import tsLoss from "../assets/ml/transformer-timeseries-loss.png";
+import tsPredictions from "../assets/ml/transformer-timeseries-predictions.png";
+
+// Map project + placeholder keys -> actual image files
+const imageSources = {
+  "spectral-lora": {
+    heatmap: spectralHeatmap,
+    "average-gaps": spectralAverageGaps,
+  },
+  "styleclip-gating": {
+    "problem-statement": styleclipProblem,
+    results: styleclipResults,
+  },
+  deblurgan: {
+    "before-after": deblurganBeforeAfter,
+  },
+  "3han-fake-news": {
+    architecture: threeHanArchitecture,
+    "confusion-matrix": threeHanConfusion,
+  },
+  "transformer-timeseries": {
+    "loss-curve": tsLoss,
+    predictions: tsPredictions,
+  },
+};
+
 const BulletList = ({ title, items }) => {
   if (!items || items.length === 0) return null;
 
@@ -9,35 +43,56 @@ const BulletList = ({ title, items }) => {
     <section className="project-detail__subsection">
       <h3>{title}</h3>
       <ul className="project-detail__list">
-        {items.map((item) => (
-          <li key={item.slice(0, 32)}>{item}</li>
+        {items.map((item, idx) => (
+          <li key={idx}>{item}</li>
         ))}
       </ul>
     </section>
   );
 };
 
-const ImagePlaceholders = ({ images }) => {
+const ImageSection = ({ projectId, images }) => {
   if (!images || images.length === 0) return null;
+
+  const sourcesForProject = imageSources[projectId] || {};
 
   return (
     <section className="project-detail__subsection">
-      <h3>Figures / visualizations (to be added)</h3>
+      <h3>Figures / visualizations</h3>
       <div className="project-detail__images">
-        {images.map((img) => (
-          <div key={img.key} className="project-detail__image-placeholder">
-            <div className="project-detail__image-box">
-              <span>Image placeholder</span>
+        {images.map((img, idx) => {
+          const src = sourcesForProject[img.key];
+
+          return (
+            <div
+              key={img.key || idx}
+              className="project-detail__image-placeholder"
+            >
+              <div className="project-detail__image-box">
+                {src ? (
+                  <img
+                    src={src}
+                    alt={img.title}
+                    className="project-detail__image"
+                  />
+                ) : (
+                  <span>Image placeholder</span>
+                )}
+              </div>
+              <div className="project-detail__image-meta">
+                <p className="project-detail__image-title">{img.title}</p>
+                <p className="project-detail__image-desc">
+                  {img.description}
+                </p>
+                {img.suggestedFilename && (
+                  <p className="project-detail__image-filename">
+                    Suggested file: <code>{img.suggestedFilename}</code>
+                  </p>
+                )}
+              </div>
             </div>
-            <div className="project-detail__image-meta">
-              <p className="project-detail__image-title">{img.title}</p>
-              <p className="project-detail__image-desc">{img.description}</p>
-              <p className="project-detail__image-filename">
-                Suggested file: <code>{img.suggestedFilename}</code>
-              </p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
@@ -45,6 +100,7 @@ const ImagePlaceholders = ({ images }) => {
 
 const MLProjectDetail = () => {
   const { projectId } = useParams();
+
   const project =
     mlProjects.find((p) => p.slug === projectId) ||
     mlProjects.find((p) => p.id === projectId);
@@ -58,7 +114,7 @@ const MLProjectDetail = () => {
           className="project-card__link"
           style={{ marginTop: "1rem", display: "inline-block" }}
         >
-          ← Back to projects
+          ← Back to portfolio
         </Link>
       </main>
     );
@@ -129,7 +185,10 @@ const MLProjectDetail = () => {
       <BulletList title="Approach" items={project.approach} />
       <BulletList title="Results" items={project.results} />
 
-      <ImagePlaceholders images={project.imagePlaceholders} />
+      <ImageSection
+        projectId={project.id}
+        images={project.imagePlaceholders}
+      />
     </main>
   );
 };
