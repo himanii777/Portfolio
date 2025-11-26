@@ -11,7 +11,15 @@ export const mlProjects = [
     shortDescription:
       "This project investigates how LoRA fine-tuning alters internal model representations, focusing on intruder dimensions and spectral behavior. After challenging key claims from prior work, it introduces Spectral LoRA, a method that determines each layer’s rank from its singular value spectrum to enable more principled, structure-aware fine-tuning.",
     longDescription:
-      "The project begins by reproducing the claims from “LoRA vs Full Fine-Tuning: An Illusion of Equivalence,” which argues that LoRA introduces harmful intruder dimensions while full fine-tuning does not. Experiments with RoBERTa and LLaMA showed the opposite trend: intruder dimensions often increase with rank, and yet the models still generalize well on out-of-distribution benchmarks. This leads to a deeper analysis of the spectral properties of each layer’s weight matrices, using singular value shifts and Davis–Kahan theory to understand why intruders arise. Building on this, Spectral LoRA is proposed as a variant that assigns each layer a different LoRA rank based on its spectral gap profile. While the method does not yet outperform randomly assigned ranks under equal parameter budgets, it lays the groundwork for future structure-aware, adaptive fine-tuning methods.",
+      "The project begins by revisiting the findings of “LoRA vs. Full Fine-Tuning: An Illusion of Equivalence,” which argues that LoRA introduces harmful intruder dimensions that do not appear under full fine-tuning. Experiments with RoBERTa and LLaMA, however, show a different trend: intruder dimensions often increase with LoRA rank, yet the models still generalize well on out-of-distribution benchmarks. This discrepancy motivates a closer examination of the spectral behavior of each layer’s weight matrices. By studying singular value shifts and applying Davis–Kahan perturbation theory, the project analyzes how and why intruder dimensions emerge during adaptation. These insights lead to the development of Spectral LoRA, a variant that assigns different LoRA ranks to each layer based on its spectral gap profile. Although this approach does not yet outperform random rank assignment under equal parameter budgets, it provides groundwork for future structure-aware and adaptive fine-tuning methods.",
+       overviewImages: [
+      {
+        key: "heatmap", // must match a key in imageSources["spectral-lora"]
+        title: "Intruder-dimension heatmap",
+        description:
+          "High-level view of how similarity scores vary across dimensions for LoRA rank = 1 on RoBERTa."
+      }
+    ],
     problems: [
       "Do LoRA-induced intruder dimensions actually harm generalization?",
       "How do LoRA rank and spectral properties influence representation shifts?",
@@ -35,24 +43,25 @@ export const mlProjects = [
       "Overall findings suggest simple spectral heuristics are insufficient, but they highlight the potential for more advanced structure-aware fine-tuning strategies."
     ],
     githubUrl: "https://github.com/himanii777/LoRA-from-scratch-for-LLaMA",
-    extraLinks: [],
+    extraLinks: [{
+        label: "Base Paper",
+        url: "https://arxiv.org/abs/2410.21228"
+      }],
     imagePlaceholders: [
       {
         key: "heatmap",
         title: "Intruder-dimension heatmap",
         description:
-          "Visualization of similarity scores for LoRA rank = 1 on RoBERTa fine-tuned on MNLI. Dark blue indicates high similarity; gaps correspond to intruder dimensions.",
-        suggestedFilename: "spectral-lora-heatmap.png"
+          "Visualization of similarity scores for LoRA rank = 1 on RoBERTa fine-tuned on MNLI. Dark blue indicates high similarity; gaps correspond to intruder dimensions."
       },
       {
         key: "average-gaps",
         title: "Average spectral gaps",
         description:
-          "Average spectral gaps for all layers modified by LoRA, using the first ten spectral gaps for each layer.",
-        suggestedFilename: "spectral-lora-average-gaps.png"
+          "Average spectral gaps for all layers modified by LoRA, using the first ten spectral gaps for each layer."
       }
     ],
-    tech: ["PyTorch", "LoRA", "LLaMA", "RoBERTa", "Spectral methods"]
+    tech: ["PyTorch", "LoRA", "Full-finetuning", "LLaMA", "RoBERTa", "Spectral methods"]
   },
   {
     id: "styleclip-gating",
@@ -64,7 +73,7 @@ export const mlProjects = [
     shortDescription:
       "This project extends StyleCLIP by splitting the latent space into semantic segments and applying separate mapper networks with static and dynamic gating. The goal is to prevent expression distortion and identity loss in text-guided GAN manipulation, with a focus on the Beyoncé mapper used for evaluation.",
     longDescription:
-      "StyleCLIP often performs global edits that unintentionally overwrite expressions, identity features, and fine-grained details. To address this, the mapper system is redesigned by dividing the w+ latent code into five semantic segments and training independent mappers with learnable gating mechanisms to control how much each segment can change. This improves disentanglement between features such as expression, hair, shape, and color, and allows more localized edits. The mapper code and gating operations were implemented and the Beyoncé mapper was trained, which produced one of the strongest results in the experiments. Comparisons in the poster show that the gated mapper produced more realistic edits with preserved expressions and significantly fewer artifacts than the original StyleCLIP.",
+      "StyleCLIP often produces global edits that unintentionally overwrite expressions, identity features, and other fine-grained details. To address this, the mapper architecture is redesigned by dividing the w+ latent code into five semantic segments and training separate mappers equipped with learnable gating mechanisms that regulate the extent of modification in each segment. This approach improves disentanglement across attributes such as expression, hair, shape, and color, enabling more localized and controlled edits. Results in the poster show that the gated mapper generates more realistic edits, better preserves facial expressions, and introduces significantly fewer artifacts compared to the original StyleCLIP.",
     problems: [
       "StyleCLIP often distorts expressions or overwrites subtle identity cues when applying text-driven edits.",
       "Global latent modifications can entangle unrelated features such as hair and expression.",
@@ -92,7 +101,7 @@ export const mlProjects = [
     extraLinks: [
       {
         label: "Poster",
-        url: "https://drive.google.com/drive/my-drive?dmr=1&ec=wgc-drive-hero-goto"
+        url: "https://drive.google.com/file/d/1hD8vL7_lSOwZ1lC2b5JY6oTJNRUGiw8h/view?usp=sharing"
       }
     ],
     imagePlaceholders: [
@@ -100,15 +109,13 @@ export const mlProjects = [
         key: "problem-statement",
         title: "Problem statement illustration",
         description:
-          "Side-by-side comparison showing how baseline StyleCLIP distorts expressions and identity.",
-        suggestedFilename: "styleclip-problem.png"
+          "Side-by-side comparison showing how baseline StyleCLIP distorts expressions and identity."
       },
       {
         key: "results",
         title: "Gated StyleCLIP results",
         description:
-          "Visual comparison of edited faces, demonstrating expression preservation and reduced artifacts.",
-        suggestedFilename: "styleclip-results.png"
+          "Visual comparison of edited faces, demonstrating expression preservation and reduced artifacts."
       }
     ],
     tech: ["PyTorch", "StyleGAN", "StyleCLIP", "GANs", "Computer Vision"]
@@ -123,7 +130,7 @@ export const mlProjects = [
     shortDescription:
       "This project implements DeblurGAN and explores how different architectural and training choices influence image deblurring. Multiple generator–discriminator setups, loss functions, and training ratios were tested to stabilize GAN training and improve visual quality.",
     longDescription:
-      "DeblurGAN was implemented using a ResNet-based generator while experimenting with multiple discriminator types, including PatchGAN and hybrid CNN-based variants. Training explored perceptual losses such as VGG19 and Vision Transformers, as well as adversarial losses like WGAN-GP. Because GAN training is highly sensitive, many configurations produced noise, collapse, or degraded images at higher epochs. After extensive debugging of preprocessing, perceptual-loss layers, and training dynamics, the most stable results came from a simplified DeblurGAN setup with VGG19 perceptual loss and a PatchGAN discriminator. The final model restored basic image clarity on simpler scenes but still struggled with detailed elements like text or faces.",
+      "DeblurGAN was implemented using a ResNet-based generator while testing several discriminator designs, including PatchGAN and hybrid CNN-based variants. Training incorporated a range of perceptual losses, such as VGG19 and Vision Transformers, along with adversarial losses like WGAN-GP. Because GAN training is highly sensitive, many configurations led to noisy outputs, mode collapse, or increasingly degraded images at higher epochs. After extensive debugging of preprocessing steps, perceptual-loss layers, and overall training dynamics, the most stable performance came from a simplified DeblurGAN setup using VGG19 perceptual loss and a PatchGAN discriminator. The final model was able to restore basic image clarity in simpler scenes but continued to struggle with finer details such as text and faces.",
     problems: [
       "Implement DeblurGAN and understand how architecture affects deblurring quality.",
       "Find stable generator–discriminator configurations for consistent GAN training.",
@@ -150,10 +157,9 @@ export const mlProjects = [
     imagePlaceholders: [
       {
         key: "before-after",
-        title: "Deblurring examples",
+        title: "",
         description:
-          "Pairs of blurred input images and restored outputs showing qualitative improvements.",
-        suggestedFilename: "deblurgan-before-after.png"
+          " Final stabilized generator and discriminator loss graphs"
       }
     ],
     tech: ["PyTorch", "GANs", "Computer Vision"]
@@ -169,7 +175,7 @@ export const mlProjects = [
     shortDescription:
       "This project implements the 3HAN architecture in PyTorch with word-level, sentence-level, and title-level attention to build a news representation for fake-news detection. It includes a full data loading pipeline and model that achieved strong accuracy on a large news dataset.",
     longDescription:
-      "The 3HAN model processes texts bottom-up: words form sentences, sentences form documents, and the title provides additional focus. In this PyTorch implementation, bidirectional GRUs encode each level and hierarchical attention weights combine representations into a single news vector. The data loader handles article text, sentence segmentation, and title integration. Training involved managing class imbalance and handling long articles from a large Kaggle dataset. The resulting model achieves mid-90s percent accuracy in classifying news as authentic or fake.",
+      "The 3HAN model processes text in a bottom-up manner, where words form sentences, sentences form documents, and the title provides an additional layer of focus. In this PyTorch implementation, each level is encoded using bidirectional GRUs, and hierarchical attention mechanisms combine the representations into a single news vector. The data loader manages article text, sentence segmentation, and integration of the title. Training required addressing class imbalance and handling long articles drawn from a large Kaggle dataset. The final model reaches accuracy in the mid-90% range for classifying news as authentic or fake.",
     problems: [
       "Build a model that can identify fake news articles using hierarchical attention across words, sentences, and titles.",
       "Construct a pipeline that segments documents into sentences and words and applies multi-level attention.",
@@ -195,15 +201,13 @@ export const mlProjects = [
         key: "architecture",
         title: "3HAN architecture diagram",
         description:
-          "Overview diagram showing the three levels of attention: word, sentence, and title.",
-        suggestedFilename: "3han-architecture.png"
+          "Overview diagram showing the three levels of attention: word, sentence, and title."
       },
       {
         key: "confusion-matrix",
         title: "Confusion matrix",
         description:
-          "Visualization of classification performance for fake vs authentic news.",
-        suggestedFilename: "3han-confusion-matrix.png"
+          "Visualization of classification performance for fake vs authentic news."
       }
     ],
     tech: ["PyTorch", "NLP", "Attention", "Fake-news detection"]
@@ -218,7 +222,7 @@ export const mlProjects = [
     shortDescription:
       "This project implements a Transformer to predict values in a synthetic time-series with shifting statistical properties. The model leverages multi-head attention and positional encoding to learn both global patterns and evolving trends, achieving low prediction error and stable convergence.",
     longDescription:
-      "The dataset is generated from a Weibull-based process with parameters that change over time, creating a challenging non-stationary sequence. A Transformer architecture with positional encoding, self-attention layers, and a feedforward head is implemented to capture long-range temporal dependencies. The model converges quickly, achieving low loss and smooth prediction curves across epochs. Despite the complexity of the underlying signal, the Transformer successfully models overall trends and produces consistent forecasts, highlighting the strengths of attention mechanisms for sequence modeling beyond recurrent networks.",
+      "The dataset is generated from a Weibull-based process whose parameters vary over time, producing a challenging non-stationary sequence. To capture the resulting long-range temporal dependencies, the project implements a Transformer architecture with positional encoding, self-attention layers, and a feedforward prediction head. The model converges quickly, showing low loss and smooth prediction curves across training epochs. Despite the complexity of the underlying signal, the Transformer successfully captures the overall trends and delivers consistent forecasts, demonstrating the advantages of attention mechanisms for sequence modeling beyond recurrent networks.",
     problems: [
       "Predict future values in a dynamically changing time-series.",
       "Design a Transformer architecture suited for numeric sequential data.",
@@ -247,15 +251,13 @@ export const mlProjects = [
         key: "loss-curve",
         title: "Training loss curve",
         description:
-          "Plot showing training loss decreasing and stabilizing over epochs.",
-        suggestedFilename: "transformer-timeseries-loss.png"
+          "Plot showing training loss decreasing and stabilizing over epochs."
       },
       {
         key: "predictions",
         title: "Forecast vs ground truth",
         description:
-          "Overlay of model predictions and true values for a hold-out segment of the time-series.",
-        suggestedFilename: "transformer-timeseries-predictions.png"
+          "Overlay of model predictions and true values for a hold-out segment of the time-series."
       }
     ],
     tech: ["PyTorch", "Transformers", "Time-series"]
