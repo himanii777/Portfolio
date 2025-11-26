@@ -92,8 +92,12 @@ export const mlProjects = [
       "https://github.com/himanii777/Disentangled-Latent-Gating-StyleCLIP",
     extraLinks: [
       {
-        label: "Poster",
+        label: "Project Poster",
         url: "https://drive.google.com/file/d/1hD8vL7_lSOwZ1lC2b5JY6oTJNRUGiw8h/view?usp=sharing"
+      },
+      {
+        label: "Base Paper",
+        url: "https://arxiv.org/abs/2103.17249"
       }
     ],
     imagePlaceholders: [
