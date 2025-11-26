@@ -60,8 +60,7 @@ const MLProjects = () => {
       <div className="section__header">
         <h2>Machine Learning Projects</h2>
         <p>
-          RL, NLP, vision, and time-series work. These projects focus on
-          understanding models, not just pushing metrics up.
+          I work across language models, generative systems, and vision architectures, with an interest in how these models represent information and how we can fine-tune or train them more reliably. My projects combine theory-driven insights with hands-on implementation across multiple AI domains.
         </p>
       </div>
 
