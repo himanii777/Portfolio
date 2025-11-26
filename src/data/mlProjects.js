@@ -12,14 +12,6 @@ export const mlProjects = [
       "This project investigates how LoRA fine-tuning alters internal model representations, focusing on intruder dimensions and spectral behavior. After challenging key claims from prior work, it introduces Spectral LoRA, a method that determines each layer’s rank from its singular value spectrum to enable more principled, structure-aware fine-tuning.",
     longDescription:
       "The project begins by revisiting the findings of “LoRA vs. Full Fine-Tuning: An Illusion of Equivalence,” which argues that LoRA introduces harmful intruder dimensions that do not appear under full fine-tuning. Experiments with RoBERTa and LLaMA, however, show a different trend: intruder dimensions often increase with LoRA rank, yet the models still generalize well on out-of-distribution benchmarks. This discrepancy motivates a closer examination of the spectral behavior of each layer’s weight matrices. By studying singular value shifts and applying Davis–Kahan perturbation theory, the project analyzes how and why intruder dimensions emerge during adaptation. These insights lead to the development of Spectral LoRA, a variant that assigns different LoRA ranks to each layer based on its spectral gap profile. Although this approach does not yet outperform random rank assignment under equal parameter budgets, it provides groundwork for future structure-aware and adaptive fine-tuning methods.",
-       overviewImages: [
-      {
-        key: "heatmap", // must match a key in imageSources["spectral-lora"]
-        title: "Intruder-dimension heatmap",
-        description:
-          "High-level view of how similarity scores vary across dimensions for LoRA rank = 1 on RoBERTa."
-      }
-    ],
     problems: [
       "Do LoRA-induced intruder dimensions actually harm generalization?",
       "How do LoRA rank and spectral properties influence representation shifts?",
@@ -257,7 +249,7 @@ export const mlProjects = [
         key: "predictions",
         title: "Forecast vs ground truth",
         description:
-          "Overlay of model predictions and true values for a hold-out segment of the time-series."
+          "Overlay of model predictions and true values for a hold-out segment of the time-series.",
       }
     ],
     tech: ["PyTorch", "Transformers", "Time-series"]
