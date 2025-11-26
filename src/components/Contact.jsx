@@ -12,28 +12,28 @@ const Contact = () => {
       <div className="contact__grid">
         <div className="contact__item">
           <h3>Email</h3>
-          <a href="mailto:your.email@kaist.ac.kr">your.email@kaist.ac.kr</a>
+          <a href="mailto: himanipaudayal07@kaist.ac.kr">himanipaudayal07@kaist.ac.kr</a>
         </div>
 
         <div className="contact__item">
           <h3>GitHub</h3>
           <a
-            href="https://github.com/your-username"
+            href="https://github.com/himanii777"
             target="_blank"
             rel="noreferrer"
           >
-            github.com/your-username
+            github.com/himanii777
           </a>
         </div>
 
         <div className="contact__item">
           <h3>LinkedIn</h3>
           <a
-            href="https://www.linkedin.com/in/your-handle"
+            href="https://www.linkedin.com/in/himani-paudayal-226b602a9/"
             target="_blank"
             rel="noreferrer"
           >
-            linkedin.com/in/your-handle
+            linkedin.com/in/himani-paudayal
           </a>
         </div>
       </div>
