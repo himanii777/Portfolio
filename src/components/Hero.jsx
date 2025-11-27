@@ -42,7 +42,7 @@ const Hero = () => {
             {/* <span className="hero__orbit-dot hero__orbit-dot--1" />
             <span className="hero__orbit-dot hero__orbit-dot--2" />
             <span className="hero__orbit-dot hero__orbit-dot--3" /> */}
-            <span className="hero__orbit-icon hero__orbit-icon--1">✧</span>
+            {/* <span className="hero__orbit-icon hero__orbit-icon--1">✧</span> */}
             {/* <span className="hero__orbit-icon hero__orbit-icon--2">✦</span>
             <span className="hero__orbit-icon hero__orbit-icon--3">✦</span> */}
 
