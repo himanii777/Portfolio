@@ -3,7 +3,7 @@ const SoftwareProjects = () => {
   return (
     <section className="section" id="software-projects">
       <div className="section__header">
-        <h2>Software Engineering Projects</h2>
+        <h2>Full-Stack Projects</h2>
         <p>
           We&apos;ll plug in your full-stack and backend projects here next
           (separate component, same style as the ML section).

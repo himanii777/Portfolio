@@ -164,7 +164,7 @@ export const mlProjects = [
     id: "3han-fake-news",
     slug: "3han-fake-news",
     title:
-      "3HAN-PyTorch: Hierarchical Attention Network for Fake-News Detection",
+      "3HAN: Hierarchical Attention Network for Fake-News Detection",
     category: "Machine Learning / NLP",
     shortTagline:
       "Implementation of a three-level hierarchical attention network to classify news authenticity.",

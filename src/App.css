@@ -1127,16 +1127,31 @@
   background: #fff7f4;
 }
 
-.project-card__header {
+/* .project-card__header {
   margin: -1.3rem -1.5rem 1rem;
   padding: 1rem 1.5rem;
   background: var(--accent);      /* SOLID MAROON */
-  color: #fffaf0;                 /* warm off-white text */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  /* color: #fffaf0;                 /* warm off-white text */
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+} */ 
+
+.project-card__header {
+  margin: -1.3rem -1.5rem 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--accent);
+  color: #fffaf0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+
+  min-height: 110px;
 }
+
 
 
 .project-card__title {
