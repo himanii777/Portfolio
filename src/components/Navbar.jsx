@@ -1,4 +1,6 @@
 // src/components/Navbar.jsx
+import { useNavigate, useLocation } from "react-router-dom";
+
 import { useState, useEffect } from "react";
 
 const Navbar = () => {
@@ -18,20 +20,40 @@ const Navbar = () => {
     }
     setOpen(false);
   };
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleLogoClick = () => {
+    if (location.pathname !== "/") {
+      // Navigate home first
+      navigate("/");
+      // After navigation completes, scroll to top
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 50);
+    } else {
+      // If already home, smooth scroll to top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <header className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__inner">
-        
         {/* LOGO → Go to Home */}
-        <div className="navbar__logo" onClick={() => handleNavClick("home")}>
-          <span className="navbar__logo-initials">LT</span>
+        {/* <div className="navbar__logo" onClick={() => handleNavClick("home")}>
+
+          <img src="/cat.jpg" alt="cat logo" className="navbar__cat-logo" />
+
+          <span className="navbar__logo-text">Lora The Explorer</span>
+        </div> */}
+        <div className="navbar__logo" onClick={handleLogoClick}>
+          <img src="/cat.jpg" alt="cat logo" className="navbar__cat-logo" />
           <span className="navbar__logo-text">Lora The Explorer</span>
         </div>
 
         {/* NAV LINKS */}
         <nav className={`navbar__links ${open ? "navbar__links--open" : ""}`}>
-
           <button
             className="navbar__link"
             onClick={() => handleNavClick("skills")}
@@ -73,7 +95,6 @@ const Navbar = () => {
           >
             Contact
           </button>
-
         </nav>
 
         {/* MOBILE BURGER */}
