@@ -22,38 +22,61 @@ const Navbar = () => {
   return (
     <header className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__inner">
+        
+        {/* LOGO → Go to Home */}
         <div className="navbar__logo" onClick={() => handleNavClick("home")}>
           <span className="navbar__logo-initials">LT</span>
           <span className="navbar__logo-text">Lora The Explorer</span>
         </div>
 
+        {/* NAV LINKS */}
         <nav className={`navbar__links ${open ? "navbar__links--open" : ""}`}>
+
           <button
             className="navbar__link"
-            onClick={() => handleNavClick("home")}
+            onClick={() => handleNavClick("skills")}
           >
-            Home
+            Skills
           </button>
+
+          <button
+            className="navbar__link"
+            onClick={() => handleNavClick("experience")}
+          >
+            Experience
+          </button>
+
           <button
             className="navbar__link"
             onClick={() => handleNavClick("ml-projects")}
           >
             ML Projects
           </button>
+
           <button
             className="navbar__link"
             onClick={() => handleNavClick("software-projects")}
           >
             Software Projects
           </button>
+
+          <button
+            className="navbar__link"
+            onClick={() => handleNavClick("education")}
+          >
+            Education
+          </button>
+
           <button
             className="navbar__link"
             onClick={() => handleNavClick("contact")}
           >
             Contact
           </button>
+
         </nav>
 
+        {/* MOBILE BURGER */}
         <button
           className="navbar__burger"
           onClick={() => setOpen((prev) => !prev)}

@@ -28,7 +28,7 @@ const Splash = ({ onProceed }) => {
           </div>
         </div>
         <button className="btn btn--primary splash__btn" onClick={onProceed}>
-          Enter portfolio
+          $ sudo explore
         </button>
       </div>
     </div>
