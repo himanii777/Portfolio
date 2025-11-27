@@ -1,4 +1,3 @@
-// src/components/MLProjects.jsx
 import { useNavigate } from "react-router-dom";
 import { mlProjects } from "../data/mlProjects";
 
@@ -10,7 +9,10 @@ const ProjectCard = ({ project }) => {
   };
 
   return (
-    <article className="project-card" onClick={goToDetail}>
+    <article
+      className="project-card reveal reveal--up"
+      onClick={goToDetail}
+    >
       <header className="project-card__header">
         <h3 className="project-card__title">{project.title}</h3>
         <p className="project-card__meta">{project.category}</p>
@@ -56,11 +58,15 @@ const ProjectCard = ({ project }) => {
 
 const MLProjects = () => {
   return (
-    <section className="section" id="ml-projects">
+    <section className="section projects-section" id="ml-projects">
       <div className="section__header">
         <h2>Machine Learning Projects</h2>
         <p>
-          I work across language models, generative systems, and vision architectures, with an interest in how these models represent information and how we can fine-tune or train them more reliably. My projects combine theory-driven insights with hands-on implementation across multiple AI domains.
+          I work across language models, generative systems, and vision
+          architectures, with an interest in how these models represent
+          information and how we can fine-tune or train them more reliably. My
+          projects combine theory-driven insights with hands-on implementation
+          across multiple AI domains.
         </p>
       </div>
 

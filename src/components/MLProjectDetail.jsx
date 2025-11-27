@@ -2,7 +2,6 @@
 import { useParams, Link } from "react-router-dom";
 import { mlProjects } from "../data/mlProjects";
 
-// === IMAGE IMPORTS ===
 import spectralHeatmap from "../assets/ml/spectral-lora-heatmap.png";
 import spectralAverageGaps from "../assets/ml/spectral-lora-average-gaps.png";
 import styleclipProblem from "../assets/ml/styleclip-problem.png";
@@ -13,7 +12,6 @@ import threeHanConfusion from "../assets/ml/3han-confusion-matrix.png";
 import tsLoss from "../assets/ml/transformer-timeseries-loss.png";
 import tsPredictions from "../assets/ml/transformer-timeseries-predictions.png";
 
-// Map project + placeholder keys -> actual image files
 const imageSources = {
   "spectral-lora": {
     heatmap: spectralHeatmap,
@@ -81,9 +79,7 @@ const ImageSection = ({ projectId, images }) => {
               </div>
               <div className="project-detail__image-meta">
                 <p className="project-detail__image-title">{img.title}</p>
-                <p className="project-detail__image-desc">
-                  {img.description}
-                </p>
+                <p className="project-detail__image-desc">{img.description}</p>
                 {img.suggestedFilename && (
                   <p className="project-detail__image-filename">
                     Suggested file: <code>{img.suggestedFilename}</code>
@@ -107,7 +103,7 @@ const MLProjectDetail = () => {
 
   if (!project) {
     return (
-      <main className="section">
+      <main className="section section--visible">
         <p>Project not found.</p>
         <Link
           to="/"
@@ -121,7 +117,7 @@ const MLProjectDetail = () => {
   }
 
   return (
-    <main className="section project-detail">
+    <main className="section section--visible project-detail">
       <div className="project-detail__header">
         <Link to="/" className="project-detail__back">
           ← Back to portfolio
@@ -148,7 +144,7 @@ const MLProjectDetail = () => {
             ))}
         </div>
 
-        <div className="project-detail__links">
+        {/* <div className="project-detail__links">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
@@ -171,6 +167,30 @@ const MLProjectDetail = () => {
                 {link.label}
               </a>
             ))}
+        </div> */}
+        <div className="project-detail__links">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn--primary"
+            >
+              View GitHub
+            </a>
+          )}
+          {project.extraLinks &&
+            project.extraLinks.map((link) => (
+              <a
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn--primary"
+              >
+                {link.label}
+              </a>
+            ))}
         </div>
       </div>
 
@@ -185,10 +205,7 @@ const MLProjectDetail = () => {
       <BulletList title="Approach" items={project.approach} />
       <BulletList title="Results" items={project.results} />
 
-      <ImageSection
-        projectId={project.id}
-        images={project.imagePlaceholders}
-      />
+      <ImageSection projectId={project.id} images={project.imagePlaceholders} />
     </main>
   );
 };
