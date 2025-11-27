@@ -1,4 +1,3 @@
-// src/components/Home.jsx
 import { useEffect } from "react";
 import Hero from "./Hero.jsx";
 import MLProjects from "./MLProjects.jsx";
@@ -8,23 +7,38 @@ import Contact from "./Contact.jsx";
 const Home = () => {
   useEffect(() => {
     const sections = document.querySelectorAll(".section");
+    const reveals = document.querySelectorAll(".reveal");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+    const sectionObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("section--visible");
           }
         });
       },
-      {
-        threshold: 0.25, // ~25% of section must be visible
-      }
+      { threshold: 0.3 }
     );
 
-    sections.forEach((sec) => observer.observe(sec));
+    sections.forEach(sec => sectionObserver.observe(sec));
 
-    return () => observer.disconnect();
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal--visible");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    reveals.forEach(el => revealObserver.observe(el));
+
+    return () => {
+      sectionObserver.disconnect();
+      revealObserver.disconnect();
+    };
   }, []);
 
   return (

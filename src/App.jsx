@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -7,47 +6,12 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./components/Home.jsx";
 import MLProjectDetail from "./components/MLProjectDetail.jsx";
-
-// make sure this path points to your image
 import HimaniPic from "./assets/Himani.jpg";
-
-// const Splash = ({ onProceed }) => {
-//   return (
-//     <div className="splash">
-//       <div className="splash__rings" />
-
-//       <div className="splash__content">
-//         <div className="splash__top">
-//           <div className="splash__avatar-ring">
-//             <img
-//               src={HimaniPic}
-//               alt="Himani Paudayal"
-//               className="splash__avatar-img"
-//             />
-//           </div>
-
-//           {/* NEW: grey subtitle */}
-//           <p className="splash__tagline">ML · Full-stack</p>
-
-//           <div className="splash__typing">
-//             <span className="splash__typing-text">Hi I am Himani</span>
-//             <span className="splash__caret" />
-//           </div>
-//         </div>
-
-//         <button className="btn btn--primary splash__btn" onClick={onProceed}>
-//           Enter portfolio
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
 
 const Splash = ({ onProceed }) => {
   return (
     <div className="splash">
       <div className="splash__rings" />
-
       <div className="splash__content">
         <div className="splash__top">
           <div className="splash__avatar-ring">
@@ -57,16 +21,12 @@ const Splash = ({ onProceed }) => {
               className="splash__avatar-img"
             />
           </div>
-
-          {/* NEW: grey subtitle */}
-          <p className="splash__tagline">ML · Full-stack</p>
-
+          <p className="splash__tagline">ML and full stack</p>
           <div className="splash__typing">
             <span className="splash__typing-text">Hi I am Himani</span>
             <span className="splash__caret" />
           </div>
         </div>
-
         <button className="btn btn--primary splash__btn" onClick={onProceed}>
           Enter portfolio
         </button>
@@ -92,7 +52,6 @@ function App() {
   return (
     <div className="app">
       {showSplash && <Splash onProceed={handleProceed} />}
-
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
