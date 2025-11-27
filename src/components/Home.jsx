@@ -1,8 +1,8 @@
 
-// // src/components/Home.jsx
 // import { useEffect } from "react";
 // import Hero from "./Hero.jsx";
 // import Skills from "./Skills.jsx";
+// import Experience from "./Experience.jsx";
 // import MLProjects from "./MLProjects.jsx";
 // import SoftwareProjects from "./SoftwareProjects.jsx";
 // import Contact from "./Contact.jsx";
@@ -48,20 +48,30 @@
 //     <main>
 //       <Hero />
 //       <Skills />
+//       <Experience />
 //       <MLProjects />
 //       <SoftwareProjects />
+//       <section className="section education" id="education">
+//         <div className="section__header">
+//           <h2>Education</h2>
+//           <p>
+//             Double major in Aerospace Engineering and Computer Science at KAIST,
+//             with a research-focused background from Korea Science Academy.
+//           </p>
+//         </div>
+//       </section>
 //       <Contact />
 //     </main>
 //   );
 // };
 
 // export default Home;
-
 // src/components/Home.jsx
 import { useEffect } from "react";
 import Hero from "./Hero.jsx";
 import Skills from "./Skills.jsx";
 import Experience from "./Experience.jsx";
+import Education from "./Education.jsx";
 import MLProjects from "./MLProjects.jsx";
 import SoftwareProjects from "./SoftwareProjects.jsx";
 import Contact from "./Contact.jsx";
@@ -110,15 +120,7 @@ const Home = () => {
       <Experience />
       <MLProjects />
       <SoftwareProjects />
-      <section className="section education" id="education">
-        <div className="section__header">
-          <h2>Education</h2>
-          <p>
-            Double major in Aerospace Engineering and Computer Science at KAIST,
-            with a research-focused background from Korea Science Academy.
-          </p>
-        </div>
-      </section>
+      <Education />
       <Contact />
     </main>
   );
