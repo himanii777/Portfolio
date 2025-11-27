@@ -21,9 +21,9 @@ const Splash = ({ onProceed }) => {
               className="splash__avatar-img"
             />
           </div>
-          <p className="splash__tagline">ML and full stack</p>
+          <p className="splash__tagline">ML · Full-stack</p>
           <div className="splash__typing">
-            <span className="splash__typing-text">Hi I am Himani</span>
+            <span className="splash__typing-text">Hi!! I am Himani</span>
             <span className="splash__caret" />
           </div>
         </div>

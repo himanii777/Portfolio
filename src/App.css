@@ -1329,3 +1329,27 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+.contact__row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.contact__icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.contact__icon-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.contact__icon-link:hover .contact__icon {
+  transform: scale(1.08);
+  transition: transform 0.15s ease;
+}
+
