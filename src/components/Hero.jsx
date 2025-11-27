@@ -21,7 +21,7 @@ const Hero = () => {
             View ML Projects
           </a>
           <a href="#software-projects" className="btn btn--primary">
-            View Full Stack Projects
+            View Full-Stack Projects
           </a>
         </div>
       </div>
