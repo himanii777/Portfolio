@@ -314,9 +314,14 @@
 
 .hero__bubble-card {
   position: absolute;
-  left: 50%;
-  top: 100%;                     /* appear BELOW the button */
-  transform: translate(-50%, 12px) scale(0.96);  
+  
+  /* shift RIGHT */
+  left: 70%;              /* moves the popup toward the right */
+  
+  /* shift UP a bit */
+  top: -20px;             /* move upward slightly */
+
+  transform: translate(0, -100%) scale(0.96);
   opacity: 0;
   pointer-events: none;
   background: var(--bg-elevated);
@@ -333,20 +338,20 @@
 .hero__bubble-card::after {
   content: "";
   position: absolute;
-  top: -8px;                 /* moved above */
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 0 8px 8px 8px;
+  left: 20%;                     /* shift arrow left/right */
+  bottom: -8px;                  /* arrow appears UNDER the popup */
+  border-width: 8px 8px 0 8px;
   border-style: solid;
-  border-color: transparent transparent var(--bg-elevated) transparent;
+  border-color: var(--bg-elevated) transparent transparent transparent;
 }
+
 
 
 .hero__bubble-wrapper:hover .hero__bubble-card {
   opacity: 1;
-  /* transform: translate(-50%, -125%) scale(1); */
-  transform: translate(-50%, 0) scale(1);
+  transform: translate(0, -110%) scale(1);   /* keep popup above + right */
 }
+
 
 .hero__bubble-title {
   font-size: 0.85rem;

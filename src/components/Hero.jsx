@@ -4,7 +4,7 @@ const Hero = () => {
     <section className="section hero" id="home">
       {/* LEFT: main text */}
       <div className="hero__left">
-        <p className="hero__tag">Software / Machine Learning Engineer</p>
+        <p className="hero__tag">Machine Learning / Full stack</p>
 
         <h1 className="hero__name">Himani Paudayal</h1>
 
@@ -58,7 +58,7 @@ const Hero = () => {
         </div>
 
         <div className="hero__bubble-wrapper">
-          <button className="hero__bubble-btn">✧ About me</button>
+          <button className="hero__bubble-btn">✧ About me ✧</button>
           <div className="hero__bubble-card">
             <p className="hero__bubble-title">About Himani</p>
             <p className="hero__bubble-body">
