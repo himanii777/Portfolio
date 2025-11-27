@@ -6,20 +6,20 @@ import SoftwareProjects from "./SoftwareProjects.jsx";
 import Contact from "./Contact.jsx";
 
 const Home = () => {
-  // sections fade / pop in as they enter the viewport
   useEffect(() => {
     const sections = document.querySelectorAll(".section");
 
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("section--visible");
-            obs.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      {
+        threshold: 0.25, // ~25% of section must be visible
+      }
     );
 
     sections.forEach((sec) => observer.observe(sec));

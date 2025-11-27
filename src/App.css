@@ -100,6 +100,47 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 3.5rem 1.5rem 3.5rem;
+
+  /* slide / fade base state */
+  position: relative;
+  opacity: 0;
+  filter: blur(4px);
+  --section-tx: 0px;
+  --section-ty: 40px;
+  transform: translate3d(var(--section-tx), var(--section-ty), 0);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out,
+    filter 0.7s ease-out;
+}
+
+/* different slide directions per section
+   1: Hero (default: from bottom)
+   2: ML projects (from right)
+   3: Software projects (from left)
+   4: Contact (from bottom again) */
+
+main .section:nth-of-type(2) {
+  --section-tx: 40px;
+  --section-ty: 0px;
+}
+
+main .section:nth-of-type(3) {
+  --section-tx: -40px;
+  --section-ty: 0px;
+}
+
+main .section:nth-of-type(4) {
+  --section-tx: 0px;
+  --section-ty: 40px;
+}
+
+/* when section becomes visible */
+.section.section--visible {
+  opacity: 1;
+  filter: blur(0);
+  --section-tx: 0px;
+  --section-ty: 0px;
 }
 
 .section__header {
@@ -118,12 +159,76 @@
 
 /* HERO */
 
-.hero {
+/* .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.5fr);
   gap: 2.8rem;
   padding-top: 4rem;
   align-items: center;
+} */
+/* .hero {
+  position: relative;
+  overflow: hidden;
+} */
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.5fr);
+  align-items: center;      /* FORCE both sides to align vertically */
+}
+
+
+.hero-shapes {
+  position: absolute;
+  top: 0;
+  left: -80px;
+  width: 520px;
+  height: 520px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Large soft blue circle */
+.shape--circle {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.12);
+  top: 40px;
+  left: 30px;
+  animation: float-slow 9s ease-in-out infinite;
+}
+
+/* Light grey-blue circle */
+.shape--circle-light {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.08);
+  top: 200px;
+  left: 180px;
+  animation: float-slow 7s ease-in-out infinite reverse;
+}
+
+/* Dot grid block */
+.shape--dots {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 150px;
+  left: 80px;
+  background-image: radial-gradient(rgba(59, 130, 246, 0.35) 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+  opacity: 0.55;
+  animation: float-slow 11s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 
 .hero__left {
@@ -192,6 +297,8 @@
   align-items: center;
   gap: 1.1rem;
 }
+ /* RIGHT-SIDE FLORAL / PETAL ACCENTS */
+
 
 .hero__avatar-shell {
   position: relative;
@@ -276,6 +383,32 @@
   letter-spacing: 0.08em;
   color: #1d4ed8;
 }
+.hero__chips--float .hero__chip {
+  position: relative;
+  animation: chipFloat 4s ease-in-out infinite;
+  animation-delay: calc(var(--i, 1) * 0.14s);
+}
+
+.hero__chips--float .hero__chip:nth-child(1) { --i: 1; }
+.hero__chips--float .hero__chip:nth-child(2) { --i: 2; }
+.hero__chips--float .hero__chip:nth-child(3) { --i: 3; }
+.hero__chips--float .hero__chip:nth-child(4) { --i: 4; }
+.hero__chips--float .hero__chip:nth-child(5) { --i: 5; }
+
+@keyframes chipFloat {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0px); }
+}
+.hero__left,
+.hero__cta,
+.hero__chips,
+.hero__name,
+.hero__summary {
+  position: relative;
+  z-index: 2;
+}
+
 
 /* real photo class */
 .hero__avatar-img {

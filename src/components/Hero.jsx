@@ -3,7 +3,7 @@ const Hero = () => {
   return (
     <section className="section hero" id="home">
       {/* LEFT: main text */}
-      <div className="hero__left">
+      {/* <div className="hero__left">
         <p className="hero__tag">Machine Learning / Full stack</p>
 
         <h1 className="hero__name">Himani Paudayal</h1>
@@ -30,10 +30,52 @@ const Hero = () => {
             View software projects
           </a>
         </div>
+      </div> */}
+      <div className="hero__left">
+        {/* FLOATING SHAPES */}
+        <div className="hero-shapes">
+          <div className="shape shape--circle"></div>
+          <div className="shape shape--circle-light"></div>
+          <div className="shape shape--dots"></div>
+        </div>
+
+        <p className="hero__tag">Software / Machine Learning Engineer</p>
+
+        <h1 className="hero__name">Himani Paudayal</h1>
+
+        <p className="hero__summary">
+          I build and debug ML systems end-to-end: reinforcement learning for
+          fault-tolerant drones, LLM and vision models, and the full-stack
+          pieces that ship those models to real users.
+        </p>
+
+        {/* TAGS */}
+        <div className="hero__chips hero__chips--float">
+          <span className="hero__chip">LLMs & representations</span>
+          <span className="hero__chip">Vision & Generative Models</span>
+          <span className="hero__chip">NLP</span>
+          <span className="hero__chip">React+ Node</span>
+          <span className="hero__chip">Springboot</span>
+        </div>
+
+        <div className="hero__cta">
+          <a href="#ml-projects" className="btn btn--primary">
+            View ML projects
+          </a>
+          <a href="#software-projects" className="btn btn--ghost">
+            View software projects
+          </a>
+        </div>
       </div>
 
       {/* RIGHT: circle photo + animated orbit + about-me bubble */}
       <div className="hero__right">
+        <div className="shape-flowers">
+          <div className="flower-petal flower-petal--1"></div>
+          <div className="flower-petal flower-petal--2"></div>
+          <div className="flower-petal flower-petal--3"></div>
+        </div>
+
         <div className="hero__avatar-shell">
           <div className="hero__avatar-glow" />
 
@@ -45,15 +87,16 @@ const Hero = () => {
             {/* <span className="hero__orbit-icon hero__orbit-icon--1">✧</span> */}
             {/* <span className="hero__orbit-icon hero__orbit-icon--2">✦</span>
             <span className="hero__orbit-icon hero__orbit-icon--3">✦</span> */}
-
           </div>
 
           {/* If you have a real photo, replace inner div with an <img> using hero__avatar-img */}
           <div className="hero__avatar-ring">
-            <img src="/Himani.jpg" alt="Himani Paudayal" className="hero__avatar-img" />
-            <div className="hero__avatar">
-              {/* <span>HP</span> */}
-            </div>
+            <img
+              src="/Himani.jpg"
+              alt="Himani Paudayal"
+              className="hero__avatar-img"
+            />
+            <div className="hero__avatar">{/* <span>HP</span> */}</div>
           </div>
         </div>
 
