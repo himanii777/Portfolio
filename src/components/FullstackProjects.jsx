@@ -1,0 +1,82 @@
+// src/components/FullstackProjects.jsx
+
+import { useNavigate } from "react-router-dom";
+import { fullstackProjects } from "../data/fullstackProjects";
+
+const ProjectCard = ({ project }) => {
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/fullstack/${project.slug || project.id}`);
+  };
+
+  return (
+    <article
+      className="project-card reveal reveal--up"
+      onClick={goToDetail}
+    >
+      <header className="project-card__header">
+        <h3 className="project-card__title">{project.title}</h3>
+        <p className="project-card__meta">{project.category}</p>
+      </header>
+
+      <p className="project-card__description">{project.shortDescription}</p>
+
+      {project.tech && project.tech.length > 0 && (
+        <ul className="project-card__tags">
+          {project.tech.map((t) => (
+            <li key={t}>{t}</li>
+          ))}
+        </ul>
+      )}
+
+      <div className="project-card__links">
+        <button
+          type="button"
+          className="project-card__link"
+          onClick={(e) => {
+            e.stopPropagation();
+            goToDetail();
+          }}
+        >
+          View details
+        </button>
+
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="project-card__link"
+            onClick={(e) => e.stopPropagation()}
+          >
+            GitHub
+          </a>
+        )}
+      </div>
+    </article>
+  );
+};
+
+const FullstackProjects = () => {
+  return (
+    <section className="section projects-section" id="fullstack-projects">
+      <div className="section__header">
+        <h2>Full-Stack / Software Projects</h2>
+        <p>
+          These projects focus on building usable systems end-to-end: frontend,
+          backend, and deployment. I care about clean APIs, predictable state
+          management, and small details that make tools feel fast and reliable.
+        </p>
+      </div>
+
+      <div className="projects-grid">
+        {fullstackProjects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default FullstackProjects;

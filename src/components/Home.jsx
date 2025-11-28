@@ -73,7 +73,7 @@ import Skills from "./Skills.jsx";
 import Experience from "./Experience.jsx";
 import Education from "./Education.jsx";
 import MLProjects from "./MLProjects.jsx";
-import SoftwareProjects from "./SoftwareProjects.jsx";
+import FullstackProjects from "./FullstackProjects.jsx";
 import Contact from "./Contact.jsx";
 
 const Home = () => {
@@ -119,7 +119,7 @@ const Home = () => {
       <Skills />
       <Experience />
       <MLProjects />
-      <SoftwareProjects />
+      <FullstackProjects />
       <Education />
       <Contact />
     </main>
