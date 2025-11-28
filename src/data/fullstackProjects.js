@@ -80,18 +80,7 @@ export const fullstackProjects = [
     githubUrl:
       "https://github.com/himanii777/Netflix-Data-Service-Spring-Boot-PostgreSQL",
     extraLinks: [],
-    images: [
-      // {
-      //   title: "Database Schema",
-      //   description:
-      //     "PostgreSQL table representing the Netflix catalog mapped from the CSV dataset.",
-      // },
-      // {
-      //   title: "API Filtering (Postman)",
-      //   description:
-      //     "Sample API call showing filtered search using query parameters.",
-      // }
-    ],
+    images: [],
     tech: ["Java", "Spring Boot", "Spring Data JPA", "PostgreSQL", "REST API"]
   }
 ];
