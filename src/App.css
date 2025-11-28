@@ -1097,12 +1097,17 @@
 }
 
 
+ 
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  /* cards between 260px and ~340px, then wrap/center */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
+  justify-content: start;   /* center the whole group of cards */
   gap: 1.4rem;
   margin-bottom: 2.6rem;
 }
+
 
 .project-card {
   position: relative;
@@ -1118,7 +1123,10 @@
   transition: transform 0.16s ease, box-shadow 0.16s ease,
     border-color 0.16s ease, background 0.16s ease;
   overflow: hidden;
+  min-height: 430px;
+  /* no max-width here */
 }
+
 
 .project-card:hover {
   transform: translateY(-4px);

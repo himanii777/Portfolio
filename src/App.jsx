@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./components/Home.jsx";
 import MLProjectDetail from "./components/MLProjectDetail.jsx";
+import FullstackProjectDetail from "./components/FullstackProjectDetail.jsx";
+
 import HimaniPic from "./assets/Himani.jpg";
 
 const Splash = ({ onProceed }) => {
@@ -56,6 +58,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ml/:projectId" element={<MLProjectDetail />} />
+        <Route path="/fullstack/:projectId" element={<FullstackProjectDetail />} />
       </Routes>
       <Footer />
     </div>

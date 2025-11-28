@@ -1,5 +1,10 @@
 // src/data/fullstackProjects.js
 
+import proj1_home from "../assets/fullstack/proj1_home.png";
+import  proj1_login from "../assets/fullstack/proj1_login.png";
+
+import  proj1_otp from "../assets/fullstack/proj1_otp.png";
+
 export const fullstackProjects = [
   {
     id: "mern-auth",
@@ -24,16 +29,19 @@ export const fullstackProjects = [
     extraLinks: [],
     images: [
       {
+        src:proj1_home,
         title: "Login Screen",
         description:
           "User login form that triggers authentication and sets the secure JWT cookie.",
       },
       {
+        src:proj1_login,
         title: "Registration + OTP Verification",
         description:
           "New users receive an OTP email and must verify before accessing protected content.",
       },
       {
+        src:proj1_otp,
         title: "Password Reset",
         description:
           "Request OTP, verify identity, and create a new password using secure flows.",
@@ -73,16 +81,16 @@ export const fullstackProjects = [
       "https://github.com/himanii777/Netflix-Data-Service-Spring-Boot-PostgreSQL",
     extraLinks: [],
     images: [
-      {
-        title: "Database Schema",
-        description:
-          "PostgreSQL table representing the Netflix catalog mapped from the CSV dataset.",
-      },
-      {
-        title: "API Filtering (Postman)",
-        description:
-          "Sample API call showing filtered search using query parameters.",
-      }
+      // {
+      //   title: "Database Schema",
+      //   description:
+      //     "PostgreSQL table representing the Netflix catalog mapped from the CSV dataset.",
+      // },
+      // {
+      //   title: "API Filtering (Postman)",
+      //   description:
+      //     "Sample API call showing filtered search using query parameters.",
+      // }
     ],
     tech: ["Java", "Spring Boot", "Spring Data JPA", "PostgreSQL", "REST API"]
   }
