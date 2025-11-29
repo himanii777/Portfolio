@@ -32,10 +32,10 @@ const Education = () => {
     <section className="section education" id="education">
       <div className="section__header">
         <h2>Education</h2>
-        <p>
+        {/* <p>
           A STEM-focused path from Korea Science Academy to a double major at
           KAIST in Aerospace Engineering and Computer Science.
-        </p>
+        </p> */}
       </div>
 
       <div className="education__grid">
