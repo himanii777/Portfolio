@@ -77,7 +77,7 @@ const Navbar = () => {
 
           <button
             className="navbar__link"
-            onClick={() => handleNavClick("software-projects")}
+            onClick={() => handleNavClick("fullstack-projects")}
           >
             Full-Stack Projects
           </button>
