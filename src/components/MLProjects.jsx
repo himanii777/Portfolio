@@ -62,13 +62,13 @@ const MLProjects = () => {
       {/* ADDED reveal classes here */}
       <div className="section__header reveal reveal--up">
         <h2>Machine Learning Projects</h2>
-        <p>
+        {/* <p>
           I work across language models, generative systems, and vision
           architectures, with an interest in how these models represent
           information and how we can fine-tune or train them more reliably. My
           projects combine theory-driven insights with hands-on implementation
           across multiple AI domains.
-        </p>
+        </p> */}
       </div>
 
       {/* ADDED reveal classes here */}
