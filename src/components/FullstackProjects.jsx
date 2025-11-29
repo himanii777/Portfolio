@@ -64,11 +64,11 @@ const FullstackProjects = () => {
       {/* ADDED reveal classes here */}
       <div className="section__header reveal reveal--up">
         <h2>Full-Stack / Software Projects</h2>
-        <p>
+        {/* <p>
           These projects focus on end-to-end structure: clear REST APIs, organized
           backend logic, and predictable data flow to the frontend. The aim is to
           build systems that are easy to understand, trace, and maintain.
-        </p>
+        </p> */}
       </div>
 
       {/* ADDED reveal classes here */}
