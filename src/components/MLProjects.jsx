@@ -59,7 +59,8 @@ const ProjectCard = ({ project }) => {
 const MLProjects = () => {
   return (
     <section className="section projects-section" id="ml-projects">
-      <div className="section__header">
+      {/* ADDED reveal classes here */}
+      <div className="section__header reveal reveal--up">
         <h2>Machine Learning Projects</h2>
         <p>
           I work across language models, generative systems, and vision
@@ -70,7 +71,8 @@ const MLProjects = () => {
         </p>
       </div>
 
-      <div className="projects-grid">
+      {/* ADDED reveal classes here */}
+      <div className="projects-grid reveal reveal--up">
         {mlProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

@@ -61,14 +61,18 @@ const ProjectCard = ({ project }) => {
 const FullstackProjects = () => {
   return (
     <section className="section projects-section" id="fullstack-projects">
-      <div className="section__header">
+      {/* ADDED reveal classes here */}
+      <div className="section__header reveal reveal--up">
         <h2>Full-Stack / Software Projects</h2>
         <p>
-          These projects focus on end-to-end structure: clear REST APIs, organized backend logic, and predictable data flow to the frontend. The aim is to build systems that are easy to understand, trace, and maintain.
+          These projects focus on end-to-end structure: clear REST APIs, organized
+          backend logic, and predictable data flow to the frontend. The aim is to
+          build systems that are easy to understand, trace, and maintain.
         </p>
       </div>
 
-      <div className="projects-grid">
+      {/* ADDED reveal classes here */}
+      <div className="projects-grid reveal reveal--up">
         {fullstackProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

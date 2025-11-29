@@ -108,21 +108,36 @@
 } */
 
 
+/* .section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.4rem 1.6rem 2rem;
+
+  min-height: auto;
+  position: relative;
+  scroll-margin-top: 80px;
+
+  /* always visible; no section-level hide/blur */
+  /* opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+} */ 
+
 .section {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 1.4rem 1.6rem 2rem;  /* ↓ smaller vertical padding */
+  padding: 1.4rem 1.6rem 2rem;
 
-  /* remove or override min-height */
   min-height: auto;
-
   position: relative;
   scroll-margin-top: 80px;
-  opacity: 0;
-  transform: translateY(24px);
-  filter: blur(4px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out,
-    filter 0.7s ease-out;
+
+  /* always visible; no section-level hide/blur */
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
 }
 
 
@@ -932,17 +947,6 @@
   transition-delay: 0.27s;
 }
 
-.projects-section,
-.contact-section {
-  border-top: 1px solid rgba(248, 250, 252, 0.9);
-}
-
-.projects-section .section__header,
-.contact-section .section__header {
-  margin-bottom: 1.8rem;
-}
-
-
 
 
 @media (max-width: 768px) {
@@ -1390,3 +1394,105 @@
   object-fit: contain;
   margin-right: 0.6rem;
 }
+
+/* --------------------------------------------------
+   1) Tablet layout (hero + sections)
+   -------------------------------------------------- */
+@media (max-width: 1024px) {
+  /* Stack hero into one column */
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.4rem;
+    align-items: flex-start;
+  }
+
+  /* Make sure side-card is not flying off-screen */
+  .hero__side-card {
+    transform: none;      /* override any big translateY */
+    margin-top: 1.2rem;   /* small spacing below main text */
+  }
+}
+
+/* --------------------------------------------------
+   2) Small tablets / large phones
+   -------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Slightly tighter section padding on narrow screens */
+  .section {
+    padding: 1.2rem 1.2rem 1.8rem;
+  }
+
+  /* Projects list: single column, full width */
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+  }
+
+  /* Cards: allow them to shrink in height on mobile */
+  .project-card {
+    min-height: 0;
+  }
+
+  /* Project detail container a bit softer on mobile */
+  .project-detail {
+    padding: 1.8rem 1.4rem 2rem;
+    border-radius: 24px;
+  }
+
+  /* Detail image layout already stacks at 768px,
+     this just keeps it consistent */
+  .project-detail__image-placeholder {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --------------------------------------------------
+   3) Very small phones
+   -------------------------------------------------- */
+@media (max-width: 480px) {
+  /* Scale down headings slightly */
+  .hero__title {
+    font-size: clamp(2.1rem, 7vw, 2.4rem);
+  }
+
+  .section__header h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Body text slightly smaller for narrow viewports */
+  .hero__summary,
+  .section__header p {
+    font-size: 0.92rem;
+  }
+
+  /* Contact row: stack instead of a long horizontal line */
+  .contact__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  /* Skills chips: tighten spacing a bit */
+  .skills__items {
+    gap: 0.4rem;
+  }
+}
+
+
+/* .projects-section {
+  opacity:1;
+  animation: subtleFade 1.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes subtleFade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+ */
+
+
