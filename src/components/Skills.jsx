@@ -20,7 +20,7 @@ const libraries = [
   { name: "React.js", icon: "react.png" },
   { name: "Express.js", icon: "express.png" },
   { name: "Node.js", icon: "nodejs.png" },
-   { name: "Spring Boot", icon: "sb.webp" },
+  { name: "Spring Boot", icon: "sb.webp" },
   { name: "MongoDB", icon: "mongodb.png" },
   { name: "PostgreSQL", icon: "ps.png" },
   { name: "Docker", icon: "docker.webp" },
@@ -41,11 +41,13 @@ const groups = [
 const Skills = () => {
   return (
     <section className="section skills" id="skills">
-      <div className="section__header">
+      {/* Added reveal classes for consistent entrance */}
+      <div className="section__header reveal reveal--up">
         <h2>Skills</h2>
       </div>
 
-      <div className="skills__grid">
+      {/* Added reveal classes here as well */}
+      <div className="skills__grid reveal reveal--up">
         {groups.map((group) => (
           <div className="skills__group" key={group.title}>
             <h3 className="skills__title">{group.title}</h3>

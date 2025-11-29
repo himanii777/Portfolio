@@ -1,9 +1,10 @@
 .skills {
   position: relative;
+  margin-top: 2rem;
 }
 
 .skills__grid {
-  margin-top: 0rem;      /* reduce gap */
+  margin-top: 1rem;      /* reduce gap */
   margin-bottom: 0rem; 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
