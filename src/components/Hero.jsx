@@ -20,8 +20,11 @@ const Hero = () => {
           <a href="#ml-projects" className="btn btn--primary">
             View ML Projects
           </a>
-          <a href="#software-projects" className="btn btn--primary">
+          <a href="#fullstack-projects" className="btn btn--primary">
             View Full-Stack Projects
+          </a>
+          <a href="#experience" className="btn btn--primary">
+            View Experiences
           </a>
         </div>
       </div>

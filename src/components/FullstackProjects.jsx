@@ -64,9 +64,7 @@ const FullstackProjects = () => {
       <div className="section__header">
         <h2>Full-Stack / Software Projects</h2>
         <p>
-          These projects focus on building usable systems end-to-end: frontend,
-          backend, and deployment. I care about clean APIs, predictable state
-          management, and small details that make tools feel fast and reliable.
+          These projects focus on end-to-end structure: clear REST APIs, organized backend logic, and predictable data flow to the frontend. The aim is to build systems that are easy to understand, trace, and maintain.
         </p>
       </div>
 

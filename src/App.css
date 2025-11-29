@@ -87,10 +87,10 @@
   background: var(--muted);
 }
 
-.section {
-  margin-top: 0rem;      /* reduce gap */
-  margin-bottom: 0rem;   /* reduce gap */
-  padding-top: 1rem;     /* gentle breathing room */
+/* .section {
+  margin-top: 0rem;      
+  margin-bottom: 0rem;   
+  padding-top: 1rem;     
   padding-bottom: 1rem;
 
   max-width: var(--max-width);
@@ -105,7 +105,27 @@
   filter: blur(4px);
   transition: opacity 0.7s ease-out, transform 0.7s ease-out,
     filter 0.7s ease-out;
+} */
+
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.4rem 1.6rem 2rem;  /* ↓ smaller vertical padding */
+
+  /* remove or override min-height */
+  min-height: auto;
+
+  position: relative;
+  scroll-margin-top: 80px;
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(4px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out,
+    filter 0.7s ease-out;
 }
+
+
 
 .section--visible {
   opacity: 1;
@@ -118,10 +138,7 @@
   margin-bottom: 1.6rem;
 }
 
-.section__header h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.3rem;
-}
+
 
 .section__header p {
   color: var(--muted);
@@ -150,8 +167,13 @@
 }
 
 .hero__title {
-  font-size: clamp(2.6rem, 5vw, 3.2rem);
-  line-height: 1.1;
+  /* font-size: clamp(2.6rem, 5vw, 3.2rem);
+  line-height: 1.1; */
+  font-size: clamp(2.6rem, 5vw, 3.2rem);         /* slightly larger */
+  font-weight: 700;           /* make it properly bold */
+  letter-spacing: 0.02em;     /* tiny tracking for a “designed” feel */
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
 }
 
 .hero__summary {
@@ -264,34 +286,36 @@
   z-index: 10;
 }
 
+/* STEAM ABOVE MUG */
 .hero__heart {
   position: absolute;
-  top: 10px;      /* move a bit lower so it stays visible */
+  top: 13px;                 /* ↑ moved slightly upward */
   left: 50%;
-  width: 12px;    /* <-- make smaller here */
-  height: 12px;   /* <-- and here */
+  width: 2px;               /* thin line */
+  height: 17px;             /* slightly longer */
   background: var(--accent);
-  transform: translateX(-50%) rotate(-45deg);
+  border-radius: 999px;
+  transform: translateX(-50%);
 }
 
+/* left & right steam lines */
 .hero__heart::before,
 .hero__heart::after {
   content: "";
   position: absolute;
-  width: 12px;    /* <-- match size */
-  height: 12px;   /* <-- match size */
+  width: 2px;               /* thin */
+  height: 17px;             /* match main line */
   background: var(--accent);
-  border-radius: 50%;
+  border-radius: 999px;
 }
 
+/* closer spacing */
 .hero__heart::before {
-  top: -6px;      /* adjust based on size */
-  left: 0;
+  left: -6px;               /* was -10px, now closer */
 }
 
 .hero__heart::after {
-  top: 0;
-  left: 6px;      /* half of width */
+  left: 6px;                /* was 10px, now closer */
 }
 
 /* MUG */
@@ -440,9 +464,10 @@
 
   .section {
     padding-inline: 1.4rem;
-    min-height: calc(100vh - 72px);
+    min-height: auto;   /* or delete this line */
   }
 }
+
 
 @media (max-width: 768px) {
   .navbar__links {
@@ -680,20 +705,7 @@
   background: var(--muted);
 }
 
-.section {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 5rem 1.6rem 4.5rem;
-  min-height: calc(100vh - 80px);
-  position: relative;
-  scroll-snap-align: start;
-  scroll-margin-top: 80px;
-  opacity: 0;
-  transform: translateY(24px);
-  filter: blur(4px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out,
-    filter 0.7s ease-out;
-}
+
 
 .section--visible {
   opacity: 1;
@@ -706,13 +718,16 @@
 }
 
 .section__header h2 {
-  font-size: 1.6rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.9rem;          
+  font-weight: 700;           
+  letter-spacing: 0.02em;    
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
 }
 
 .section__header p {
   color: var(--muted);
-  max-width: 520px;
+  max-width: 100%;
 }
 
 .hero {
@@ -735,10 +750,6 @@
   color: var(--muted);
 }
 
-.hero__title {
-  font-size: clamp(2.6rem, 5vw, 3.2rem);
-  line-height: 1.1;
-}
 
 .hero__summary {
   color: var(--muted);
@@ -889,7 +900,7 @@
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .reveal--up {
@@ -931,21 +942,8 @@
   margin-bottom: 1.8rem;
 }
 
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.6rem;
-  }
 
-  .hero__side-card {
-    order: -1;
-  }
 
-  .section {
-    padding-inline: 1.4rem;
-    min-height: calc(100vh - 72px);
-  }
-}
 
 @media (max-width: 768px) {
   .navbar__links {
