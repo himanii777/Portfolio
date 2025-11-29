@@ -63,7 +63,7 @@ const FullstackProjects = () => {
     <section className="section projects-section" id="fullstack-projects">
       {/* ADDED reveal classes here */}
       <div className="section__header reveal reveal--up">
-        <h2>Full-Stack / Software Projects</h2>
+        <h2>Full-Stack Projects</h2>
         {/* <p>
           These projects focus on end-to-end structure: clear REST APIs, organized
           backend logic, and predictable data flow to the frontend. The aim is to
