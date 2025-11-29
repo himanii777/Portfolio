@@ -7,6 +7,8 @@ import Footer from "./components/Footer.jsx";
 import Home from "./components/Home.jsx";
 import MLProjectDetail from "./components/MLProjectDetail.jsx";
 import FullstackProjectDetail from "./components/FullstackProjectDetail.jsx";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 import HimaniPic from "./assets/Himani.jpg";
 
@@ -55,6 +57,7 @@ function App() {
     <div className="app">
       {showSplash && <Splash onProceed={handleProceed} />}
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ml/:projectId" element={<MLProjectDetail />} />
