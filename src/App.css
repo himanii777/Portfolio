@@ -1494,5 +1494,7 @@
   }
 }
  */
-
+.projects-section .section__header {
+  margin-bottom: 2.6rem;   /* tweak: 2.2–2.8rem depending on taste */
+}
 
