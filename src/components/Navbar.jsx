@@ -49,7 +49,7 @@ const Navbar = () => {
         </div> */}
         <div className="navbar__logo" onClick={handleLogoClick}>
           <img src="/cat.jpg" alt="cat logo" className="navbar__cat-logo" />
-          <span className="navbar__logo-text">Lora The Explorer</span>
+          <span className="navbar__logo-text">LoRA The Explorer</span>
         </div>
 
         {/* NAV LINKS */}
